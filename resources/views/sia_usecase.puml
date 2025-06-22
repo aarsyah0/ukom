@@ -1,0 +1,86 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Dosen
+actor Mahasiswa
+actor "Sistem (otomatis)" as Sistem
+
+rectangle "Sistem Informasi Akademik" {
+  usecase UC_Login            as "Login"
+  usecase UC_Logout           as "Logout"
+  usecase UC_KelolaDosen      as "Kelola Dosen"
+  usecase UC_KelolaMahasiswa  as "Kelola Mahasiswa"
+  usecase UC_KelolaMatakuliah as "Kelola Mata Kuliah"
+  usecase UC_KelolaJadwal     as "Kelola Jadwal"
+  usecase UC_KelolaKelas      as "Kelola Kelas"
+  usecase UC_LihatPresensiAll as "Lihat Presensi"
+  usecase UC_KelolaPengaturan as "Kelola Pengaturan"
+  usecase UC_FilterData       as "Filter Data"
+  usecase UC_ExportData       as "Export Data"
+
+  usecase UC_LihatJadwalMengajar    as "Lihat Jadwal Mengajar"
+  usecase UC_LihatPresensiMahasiswa as "Lihat Presensi Mahasiswa"
+  usecase UC_CetakLaporan           as "Cetak Laporan Presensi"
+
+  usecase UC_LihatJadwalKuliah     as "Lihat Jadwal Kuliah"
+  usecase UC_InputPresensi         as "Input Presensi"
+  usecase UC_LihatRiwayatPresensi  as "Lihat Riwayat Presensi"
+
+  usecase UC_BackupDB              as "Backup Database"
+  usecase UC_ValidasiPresensi      as "Validasi Presensi Otomatis"
+  usecase UC_GenerateLaporan       as "Generate Laporan"
+  usecase UC_Notifikasi            as "Notifikasi Sistem"
+}
+
+Admin --> UC_Login
+Admin --> UC_Logout
+Admin --> UC_KelolaDosen
+Admin --> UC_KelolaMahasiswa
+Admin --> UC_KelolaMatakuliah
+Admin --> UC_KelolaJadwal
+Admin --> UC_KelolaKelas
+Admin --> UC_LihatPresensiAll
+Admin --> UC_KelolaPengaturan
+Admin --> UC_FilterData
+Admin --> UC_ExportData
+
+Dosen --> UC_Login
+Dosen --> UC_Logout
+Dosen --> UC_LihatJadwalMengajar
+Dosen --> UC_LihatPresensiMahasiswa
+Dosen --> UC_CetakLaporan
+Dosen --> UC_FilterData
+Dosen --> UC_ExportData
+
+Mahasiswa --> UC_Login
+Mahasiswa --> UC_Logout
+Mahasiswa --> UC_LihatJadwalKuliah
+Mahasiswa --> UC_InputPresensi
+Mahasiswa --> UC_LihatRiwayatPresensi
+Mahasiswa --> UC_FilterData
+
+Sistem --> UC_BackupDB
+Sistem --> UC_ValidasiPresensi
+Sistem --> UC_GenerateLaporan
+Sistem --> UC_Notifikasi
+
+UC_KelolaDosen       .> UC_FilterData : <<include>>
+UC_KelolaDosen       .> UC_ExportData : <<include>>
+UC_KelolaMahasiswa   .> UC_FilterData : <<include>>
+UC_KelolaMahasiswa   .> UC_ExportData : <<include>>
+UC_KelolaMatakuliah  .> UC_FilterData : <<include>>
+UC_KelolaMatakuliah  .> UC_ExportData : <<include>>
+UC_KelolaJadwal      .> UC_FilterData : <<include>>
+UC_KelolaJadwal      .> UC_ExportData : <<include>>
+UC_LihatPresensiAll  .> UC_FilterData : <<include>>
+UC_LihatPresensiAll  .> UC_ExportData : <<include>>
+
+UC_LihatJadwalMengajar    .> UC_FilterData : <<include>>
+UC_LihatJadwalMengajar    .> UC_ExportData : <<include>>
+UC_LihatPresensiMahasiswa .> UC_FilterData : <<include>>
+UC_LihatPresensiMahasiswa .> UC_ExportData : <<include>>
+
+UC_LihatJadwalKuliah      .> UC_FilterData : <<include>>
+UC_LihatRiwayatPresensi   .> UC_FilterData : <<include>>
+@enduml
