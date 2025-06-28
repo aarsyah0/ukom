@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatakuliahController;
 use Illuminate\Support\Facades\Route;
 
 // Authentication Routes
@@ -31,6 +32,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('mahasiswa/{id}/edit', [AdminController::class, 'mahasiswaEdit'])->name('mahasiswa.edit');
     Route::put('mahasiswa/{id}', [AdminController::class, 'mahasiswaUpdate'])->name('mahasiswa.update');
     Route::delete('mahasiswa/{id}', [AdminController::class, 'mahasiswaDestroy'])->name('mahasiswa.destroy');
+
+    // Matakuliah Management
+    Route::get('matakuliah', [MatakuliahController::class, 'index'])->name('matakuliah.index');
+    Route::get('matakuliah/create', [MatakuliahController::class, 'create'])->name('matakuliah.create');
+    Route::post('matakuliah', [MatakuliahController::class, 'store'])->name('matakuliah.store');
+    Route::get('matakuliah/{id}/edit', [MatakuliahController::class, 'edit'])->name('matakuliah.edit');
+    Route::put('matakuliah/{id}', [MatakuliahController::class, 'update'])->name('matakuliah.update');
+    Route::delete('matakuliah/{id}', [MatakuliahController::class, 'destroy'])->name('matakuliah.destroy');
 
     // Jadwal Management
     Route::get('jadwal', [AdminController::class, 'jadwalIndex'])->name('jadwal.index');

@@ -120,6 +120,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('admin.matakuliah.*') ? 'active' : '' }}"
+                                        href="{{ route('admin.matakuliah.index') }}">
+                                        <i class="fas fa-book me-2"></i>
+                                        Mata Kuliah
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link {{ request()->routeIs('admin.jadwal.*') ? 'active' : '' }}"
                                         href="{{ route('admin.jadwal.index') }}">
                                         <i class="fas fa-calendar-alt me-2"></i>

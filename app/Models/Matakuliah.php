@@ -10,7 +10,7 @@ class Matakuliah extends Model
     use HasFactory;
 
     protected $table = 'matakuliah';
-    protected $fillable = ['kode', 'nama', 'sks', 'deskripsi'];
+    protected $fillable = ['kode', 'nama', 'sks', 'semester', 'jurusan', 'prodi', 'deskripsi'];
 
     public function jadwal()
     {
